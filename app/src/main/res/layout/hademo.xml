@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/color_bg_white"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/javaCrash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_bg_one"
+        android:textColor="@color/color_text_blue"
+        android:text="点击崩溃（java）" />
+
+    <Button
+        android:id="@+id/nativeCrash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/myNewTheme"
+        android:text="点击崩溃（native）" />
+
+    <Button
+        android:id="@+id/stuck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/myNewTheme"
+        android:text="主线程卡顿" />
+
+    <Button
+        android:id="@+id/logPrint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/myNewTheme"
+        android:text="打日志" />
+
+    <Button
+        android:id="@+id/logUpload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/myNewTheme"
+        android:text="主动上报日志" />
+
+    <Button
+        android:id="@+id/telescope"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/myNewTheme"
+        android:text="上传Event数据" />
+
+    <Button
+        android:id="@+id/appmonitor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/myNewTheme"
+        android:text="自定义错误埋点" />
+
+    <Button
+        android:id="@+id/jsError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/myNewTheme"
+        android:text="JS ERROR上报" />
+
+    <Button
+        android:id="@+id/leak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/myNewTheme"
+        android:text="高可用内存泄露" />
+
+</LinearLayout>
