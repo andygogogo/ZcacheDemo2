@@ -1,4 +1,4 @@
-package com.taobao.demo;
+package com.taobao.demo0515;
 
 import android.Manifest;
 import android.app.Activity;
@@ -10,8 +10,6 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.taobao.atlas.util.FileUtils;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -28,7 +26,6 @@ import com.alibaba.dynamic.DynamicSdk;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.taobao.accs.ACCSClient;
-import com.taobao.accs.ACCSManager;
 import com.taobao.accs.AccsClientConfig;
 import com.taobao.accs.AccsException;
 import com.taobao.accs.base.AccsAbstractDataListener;
@@ -36,14 +33,9 @@ import com.taobao.accs.base.TaoBaseService;
 import com.taobao.accs.utl.ALog;
 import com.taobao.atlas.update.AtlasUpdater;
 import com.taobao.atlas.update.model.UpdateInfo;
-import com.taobao.demo.update.MainScanActivity;
-import com.taobao.demo.update.Updater;
-import com.taobao.update.UpdateManager;
-import com.taobao.update.datasource.UpdateDataSource;
-import com.taobao.update.dexpatch.DexPatchManager;
+import com.taobao.demo0515.update.MainScanActivity;
+import com.taobao.demo0515.update.Updater;
 import com.taobao.update.wrapper.AppInfoHelper;
-import com.taobao.weex.WXEnvironment;
-import com.taobao.weex.WXSDKEngine;
 import com.taobao.weex.activity.WeexActivity;
 
 import org.json.JSONArray;
@@ -51,9 +43,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 

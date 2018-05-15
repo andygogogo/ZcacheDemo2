@@ -206,87 +206,85 @@
  *
  */
 
-package com.taobao.demo.update;
+package com.taobao.demo0515;
 
+import android.app.Application;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
+import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Toast;
-import com.alibaba.fastjson.JSON;
-import com.taobao.atlas.dex.util.FileUtils;
-import com.taobao.atlas.dexmerge.MergeCallback;
-import com.taobao.atlas.update.model.UpdateInfo;
-import com.taobao.atlas.update.util.PatchInstaller;
-import com.taobao.atlas.update.util.PatchMerger;
 
-import java.io.File;
-import java.io.IOException;
+import com.taobao.demo0515.config.EMASInfo;
 
 /**
- * Created by wuzhong on 2016/12/20.
+ * Created by guanjie on 15/8/20.
  */
+public class DemoApplication extends Application {
 
-public class Updater {
+    private Context mContext;
+    private static final String TAG = "APP";
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.e("APP","DemoApplication on create");
+        mContext = this;
 
-    public static void update(final Context context) {
-
-        File updateInfo = new File(context.getExternalCacheDir(), "update.json");
-
-        if (!updateInfo.exists()) {
-            Log.e("update", "更新信息不存在，请先 执行 buildTpatch.sh");
-            toast("更新信息不存在，请先 执行 buildTpatch.sh", context);
-            return;
-        }
-
-        String jsonStr = new String(FileUtils.readFile(updateInfo));
-        UpdateInfo info = JSON.parseObject(jsonStr, UpdateInfo.class);
-
-        File patchFile = new File(context.getExternalCacheDir(), "patch-" + info.updateVersion + "@" + info.baseVersion + ".tpatch");
-
-        try {
-//            AtlasUpdater.update(info, patchFile);
-
-            PatchMerger patchMerger = new PatchMerger(info, patchFile, new MergeCallback() {
-                @Override
-                public void onMergeResult(boolean result, String bundleName) {
-                    if (result) {
-                        toast(bundleName + "merge success!", context);
-                    }else {
-                        toast(bundleName + "merge failed!", context);
-
-                    }
-                }
-            });
-
-            try {
-                patchMerger.merge();
-            } catch (IOException e) {
-                e.printStackTrace();
+        //支持读取本地配置
+        EMASInfo einfo = Utils.parseEmasInfo(mContext);
+        EmasInit emas = new EmasInit(this);
+        if (einfo != null) {
+            if (!TextUtils.isEmpty(einfo.AppKey)) {
+                Log.i(TAG, "setAppKey:" + einfo.AppKey);
+                emas.mAppkey = einfo.AppKey;
             }
-            Log.e("mergeOutputs:",String.valueOf(patchMerger.mergeOutputs.size()));
-            PatchInstaller patchInstaller = new PatchInstaller(patchMerger.mergeOutputs, info);
 
-            patchInstaller.install();
-
-            Log.e("update", "update success");
-            toast("更新成功，请重启app", context);
-        } catch (Throwable e) {
-            e.printStackTrace();
-            toast("更新失败, " + e.getMessage(), context);
-        }
-
-
-    }
-
-    private static void toast(final String msg, final Context context) {
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+            if (!TextUtils.isEmpty(einfo.AppSecret)) {
+                Log.i(TAG, "setAppSecret:" + einfo.AppSecret);
+                emas.mAppSecret = einfo.AppSecret;
             }
-        });
+            if (einfo.IPStrategy != null && einfo.IPStrategy.size() > 0) {
+                Log.i(TAG, "setIPStrategy:" + einfo.IPStrategy);
+                emas.mIPStrategy = einfo.IPStrategy;
+            }
+            if (!TextUtils.isEmpty(einfo.ACCSDoman)) {
+                Log.i(TAG, "setACCSDoman:" + einfo.ACCSDoman);
+                emas.mAccsHost = einfo.ACCSDoman;
+            }
+            if (!TextUtils.isEmpty(einfo.HAUniversalHost)) {
+                Log.i(TAG, "setHAUniversalHost:" + einfo.HAUniversalHost);
+                emas.mAdashHost = einfo.HAUniversalHost;
+            }
+            if (!TextUtils.isEmpty(einfo.MTOPDoman)) {
+                Log.i(TAG, "setMTOPDoman:" + einfo.MTOPDoman);
+                emas.mMtopHost = einfo.MTOPDoman;
+            }
+            if (!TextUtils.isEmpty(einfo.CacheURL)) {
+                Log.i(TAG, "setCacheURL:" + einfo.CacheURL);
+                emas.mZcachePrefix = einfo.CacheURL;
+            }
+            if (!TextUtils.isEmpty(einfo.HAOSSBucketName)) {
+                Log.i(TAG, "setHAOSSBucketName:" + einfo.HAOSSBucketName);
+                emas.mHAOssBucket = einfo.HAOSSBucketName;
+            }
+            if (!TextUtils.isEmpty(einfo.HARSAPublicKey)) {
+                Log.i(TAG, "setHARSAPublicKey:" + einfo.HARSAPublicKey);
+                emas.mHAPubKey = einfo.HARSAPublicKey;
+            }
+            if (!TextUtils.isEmpty(einfo.ChannelID)) {
+                Log.i(TAG, "setChannelID:" + einfo.ChannelID);
+                emas.mTTid = einfo.ChannelID;
+            }
+            if (!TextUtils.isEmpty(einfo.StartActivity)) {
+                Log.i(TAG, "setStartActivity:" + einfo.StartActivity);
+                emas.mStartActivity = einfo.StartActivity;
+            }
+        }
+        //初始化高可用
+        emas.initHA();
+        //初始化应用更新
+        emas.initUpdate();
+        //初始化Weex
+        emas.initWeex();
+        // 初始化推送
+        emas.initPush(this);
     }
-
-
 }

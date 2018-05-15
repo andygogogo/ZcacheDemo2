@@ -1,4 +1,4 @@
-package com.taobao.demo;
+package com.taobao.demo0515;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,8 +7,8 @@ import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
-import com.taobao.demo.config.EMASInfo;
-import com.taobao.demo.config.PrivateCloudEmasConfig;
+import com.taobao.demo0515.config.EMASInfo;
+import com.taobao.demo0515.config.PrivateCloudEmasConfig;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -1,4 +1,4 @@
-package com.taobao.demo;
+package com.taobao.demo0515;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,8 +20,6 @@ import com.alibaba.mtl.appmonitor.model.DimensionValueSet;
 import com.alibaba.mtl.appmonitor.model.MeasureSet;
 import com.alibaba.mtl.appmonitor.model.MeasureValueSet;
 import com.emas.demo.R;
-
-import com.taobao.tao.log.upload.LogFileUploadManager;
 
 import java.util.Timer;
 import java.util.TimerTask;
