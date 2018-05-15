@@ -1,7 +1,7 @@
 {
     "private_cloud_config":{
-        "AppKey": "20000037",
-        "AppSecret": "ecaba42bbb08da5092eb939e58fb5ba0",
+        "AppKey": "20000170",
+        "AppSecret": "eb0382ce9cb29e1c769c584972b74cd0",
         "ACCSDoman": "emaspoc-acs.emas-ha.cn",
         "MTOPDoman": "emaspoc-aserver.emas-ha.cn",
         "ChannelID": "1001@DemoApp_Android_1.0",

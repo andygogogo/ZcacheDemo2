@@ -4,7 +4,7 @@
 apply plugin: 'com.taobao.android.emas'
 //apply from: 'dexPatchWraper.gradle'
 apply from: 'common.gradle'
-group = 'com.emas.demo'
+group = 'com.taobao.demo2'
 version = android.defaultConfig.versionName + '-SNAPSHOT'
 
 //TODO do this in plugin
@@ -46,7 +46,7 @@ android {
 
     defaultConfig {
         multiDexEnabled true
-        applicationId 'com.emas.demo'
+        applicationId 'com.taobao.demo2'
         ndk {
             abiFilters "armeabi"  //默认只启用x86,armeabi
         }
@@ -128,7 +128,8 @@ android {
 
         /************WEEX SDK START**********/
         compile ("com.taobao.android:weex_sdk:0.17.9-new-measurement-1") { transitive true }
-        compile('com.taobao.android:zcache:0.1.1-proguard') { transitive true }
+//        compile('com.taobao.android:zcache:0.1.1-proguard') { transitive true }
+        compile('com.taobao.android:zcache:0.1.2-open') { transitive true }
         compile('com.alibaba.mtl:dynamicConfig:0.1.0.10') { transitive true }
         compile('com.alibaba.mtl:dynamicconfigadapter:0.1.0.10') { transitive true }
         compile('com.android.support:recyclerview-v7:26.+') { transitive true }
