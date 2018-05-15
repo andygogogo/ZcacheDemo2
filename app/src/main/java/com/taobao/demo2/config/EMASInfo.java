@@ -1,4 +1,4 @@
-package com.taobao.demo0515.config;
+package com.taobao.demo2.config;
 
 import java.io.Serializable;
 import java.util.Map;

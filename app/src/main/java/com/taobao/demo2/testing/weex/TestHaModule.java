@@ -1,4 +1,4 @@
-package com.taobao.demo0515.testing.weex;
+package com.taobao.demo2.testing.weex;
 
 import com.taobao.weex.annotation.JSMethod;
 import com.taobao.weex.bridge.JSCallback;

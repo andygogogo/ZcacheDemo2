@@ -206,14 +206,14 @@
  *
  */
 
-package com.taobao.demo0515;
+package com.taobao.demo2;
 
 import android.app.Application;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.taobao.demo0515.config.EMASInfo;
+import com.taobao.demo2.config.EMASInfo;
 
 /**
  * Created by guanjie on 15/8/20.

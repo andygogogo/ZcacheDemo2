@@ -206,7 +206,7 @@
  *
  */
 
-package com.taobao.demo0515.update;
+package com.taobao.demo2.update;
 
 import android.content.Context;
 import android.os.Handler;

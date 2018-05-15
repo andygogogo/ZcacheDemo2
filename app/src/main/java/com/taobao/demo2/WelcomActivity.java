@@ -1,4 +1,4 @@
-package com.taobao.demo0515;
+package com.taobao.demo2;
 
 import android.Manifest;
 import android.app.Activity;
@@ -33,8 +33,8 @@ import com.taobao.accs.base.TaoBaseService;
 import com.taobao.accs.utl.ALog;
 import com.taobao.atlas.update.AtlasUpdater;
 import com.taobao.atlas.update.model.UpdateInfo;
-import com.taobao.demo0515.update.MainScanActivity;
-import com.taobao.demo0515.update.Updater;
+import com.taobao.demo2.update.MainScanActivity;
+import com.taobao.demo2.update.Updater;
 import com.taobao.update.wrapper.AppInfoHelper;
 import com.taobao.weex.activity.WeexActivity;
 

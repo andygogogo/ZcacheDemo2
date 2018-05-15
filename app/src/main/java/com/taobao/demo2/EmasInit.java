@@ -1,4 +1,4 @@
-package com.taobao.demo0515;
+package com.taobao.demo2;
 
 import android.app.Application;
 import android.content.Context;
@@ -25,7 +25,7 @@ import com.taobao.accs.AccsException;
 import com.taobao.accs.IAppReceiver;
 import com.taobao.accs.common.Constants;
 import com.taobao.accs.utl.ALog;
-import com.taobao.demo0515.testing.weex.TestHaModule;
+import com.taobao.demo2.testing.weex.TestHaModule;
 import com.taobao.update.UpdateManager;
 import com.taobao.update.common.Config;
 import com.taobao.weex.InitConfig;
